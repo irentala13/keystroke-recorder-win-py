@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "input-recorder-win"
+version = "1.0.0"
+description = "Windows keyboard/mouse recorder producing behavioral-biometrics JSON (Python counterpart to keystroke-recorder-win / keystroke-recorder-mac)"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pynput>=1.7.6",
+    "rich>=13.0",
+]
+
+[project.scripts]
+input_recorder = "input_recorder.app:run"
+
+[tool.setuptools]
+packages = ["input_recorder"]

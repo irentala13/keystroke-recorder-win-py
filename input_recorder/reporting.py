@@ -111,10 +111,10 @@ class PlainReporter(Reporter):
                     f"in {format_mmss(elapsed)} → {output_subdir}")
         if events == 0:
             self._c.log(
-                "  ⚠ No events were captured. If you expected input, macOS is "
-                "likely blocking\n"
-                "    the event tap — grant 'Input Monitoring' to your "
-                "terminal/IDE and relaunch it.")
+                "  ⚠ No events were captured. If you expected input, try "
+                "--backend pynput,\n"
+                "    and run elevated if the target window is an Administrator "
+                "process.")
 
 
 # ---------------------------------------------------------------------------
@@ -160,8 +160,8 @@ class RichReporter(Reporter):
             self._console.print(summary, style="bold")
             if getattr(self, "_zero", False):
                 self._console.print(
-                    "  ⚠ No events were captured — grant 'Input Monitoring' to "
-                    "your terminal/IDE and relaunch it.", style="yellow")
+                    "  ⚠ No events were captured — try --backend pynput, or run "
+                    "elevated for Administrator windows.", style="yellow")
 
     # -- interface --
     def begin(self, signal_type, output_subdir, runtime, interval, username) -> None:

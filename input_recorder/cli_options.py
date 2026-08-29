@@ -23,7 +23,7 @@ class CliOptions:
     session_id: str = ""        # empty -> generated UUID
     task_type: str = ""         # e.g. free-text | fixed-text | free-mouse
     prompt_id: str = ""         # id of the prompt/stimulus, if any
-    backend: str = "auto"       # auto | cgeventtap | pynput
+    backend: str = "auto"       # auto | winhook | pynput
 
 
 def _positive_int(value: str) -> int:

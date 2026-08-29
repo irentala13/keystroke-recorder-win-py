@@ -127,8 +127,8 @@ def main(argv: list[str]) -> int:
                     options.backend, options.signal_type, start, on_entry)
         except Exception as exc:
             reporter.note(f"ERROR: failed to start capture ({exc})")
-            reporter.note("Grant Input Monitoring to your terminal in System "
-                          "Settings > Privacy & Security, then relaunch it.")
+            reporter.note("Try --backend pynput. If capturing input to an "
+                          "elevated (Administrator) window, run this elevated too.")
             return 1
 
         timing.update(_timing_for(backend))

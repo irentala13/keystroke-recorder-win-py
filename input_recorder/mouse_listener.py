@@ -1,4 +1,4 @@
-"""Mouse capture via pynput — the macOS analog of mouse_hook.cpp.
+"""Mouse capture via pynput — the pynput fallback (≈ mouse_hook.cpp).
 
 Payload shapes match the Windows tool:
     ["move",    [x, y],                    elapsed, window_context]

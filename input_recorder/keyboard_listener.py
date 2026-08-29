@@ -1,13 +1,12 @@
-"""Keyboard capture via pynput — the macOS analog of keyboard_hook.cpp.
+"""Keyboard capture via pynput — the pynput fallback (≈ keyboard_hook.cpp).
 
 Emits payload entries of the form:
-    [action, "SimKey:<label>;<vk>", elapsed_seconds, window_context]
+    [action, "SimKey:<label>;<vk>", elapsed_seconds, window_context, {"autorepeat": null}]
 
-Key-labeling rule (adapted from the Windows tool): a single alphanumeric
-character -> its literal lowercase form (``a``, ``3``); everything else -> the
-macOS virtual key code as ``vk<code>``. macOS virtual key codes differ from
-Windows VK codes (this is the intended macOS adaptation), but the label shape is
-identical so downstream parsing is unchanged.
+Key-labeling rule: a single alphanumeric character -> its literal lowercase form
+(``a``, ``3``); everything else -> the Windows VK code as ``vk<code>`` (pynput's
+``key.vk`` is the Windows virtual-key code on Windows). Matches the C++ tool's
+labels. Timing is the callback clock; use the winhook backend for event-time.
 """
 
 from __future__ import annotations
